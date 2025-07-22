@@ -14,7 +14,7 @@ class SimpleWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Simple Mica Example")
-        self.setGeometry(200, 200, 600, 400)
+        self.setGeometry(200, 200, 800, 600)
 
         # Enable transparency for better Mica effect
         self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground, True)
@@ -28,12 +28,12 @@ class SimpleWindow(QMainWindow):
 
         layout = QVBoxLayout(central_widget)
         layout.setSpacing(20)
-        layout.setContentsMargins(40, 40, 40, 40)
+        layout.setContentsMargins(20, 20, 20, 20)
 
         # Title
         title = QLabel("Windows Mica Effect Demo")
         title.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        title.setStyleSheet("font-size: 24px; font-weight: bold; margin: 20px;")
+        title.setStyleSheet("font-size: 24px; font-weight: bold")
         layout.addWidget(title)
 
         # Info
@@ -42,13 +42,14 @@ class SimpleWindow(QMainWindow):
         info.setWordWrap(True)
         info.setStyleSheet("font-size: 14px; margin: 10px;")
         layout.addWidget(info)
+        layout.addStretch()
 
         # Buttons
         mica_btn = QPushButton("Apply Mica Effect")
         mica_btn.clicked.connect(self.apply_mica)
         mica_btn.setStyleSheet("""
             QPushButton {
-                padding: 10px 20px;
+                padding: 5px 20px;
                 font-size: 14px;
                 border-radius: 6px;
                 background-color: rgba(0, 120, 212, 0.8);
@@ -64,7 +65,7 @@ class SimpleWindow(QMainWindow):
         mica_alt_btn.clicked.connect(self.apply_mica_alt)
         mica_alt_btn.setStyleSheet("""
             QPushButton {
-                padding: 10px 20px;
+                padding: 5px 20px;
                 font-size: 14px;
                 border-radius: 6px;
                 background-color: rgba(140, 140, 140, 0.8);
@@ -80,7 +81,7 @@ class SimpleWindow(QMainWindow):
         auto_btn.clicked.connect(self.apply_auto)
         auto_btn.setStyleSheet("""
             QPushButton {
-                padding: 10px 20px;
+                padding: 5px 20px;
                 font-size: 14px;
                 border-radius: 6px;
                 background-color: rgba(0, 200, 83, 0.8);

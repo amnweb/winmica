@@ -102,11 +102,6 @@ def ApplyMica(HWND: int, mica_type: MicaType = MicaType.MICA) -> int:
         return -1
 
 
-def ApplyMicaAlt(HWND: int) -> int:
-    """Apply Mica Alt backdrop effect."""
-    return ApplyMica(HWND, MicaType.MICA_ALT)
-
-
 def is_mica_supported() -> bool:
     """Check if Mica effects are supported on this system."""
     return get_windows_build() >= 22000
