@@ -5,10 +5,10 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="winmica",
-    version="1.0.1",
+    version="1.0.2",
     author="AmN",
     description="Windows 11 Mica backdrop effects using official Windows API",
-    long_description="Windows Mica is a modern backdrop effect introduced in Windows 11, providing a translucent and blurred background for applications. This package allows developers to easily integrate Mica effects into their Python applications using the official Windows API.",
+    long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/amnweb/winmica",
     project_urls={
