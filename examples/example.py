@@ -7,7 +7,7 @@ import sys
 from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import QApplication, QLabel, QMainWindow, QPushButton, QVBoxLayout, QWidget
 
-from winmica import ApplyMica, MicaType, is_mica_supported
+from winmica import BackdropType, EnableMica, is_mica_supported
 
 
 class SimpleWindow(QMainWindow):
@@ -108,7 +108,7 @@ class SimpleWindow(QMainWindow):
             return
 
         hwnd = int(self.winId())
-        result = ApplyMica(hwnd, MicaType.MICA)
+        result = EnableMica(hwnd, BackdropType.MICA)
 
         if result == 0:
             self.status_label.setText("✓ Mica effect applied successfully")
@@ -124,7 +124,7 @@ class SimpleWindow(QMainWindow):
             return
 
         hwnd = int(self.winId())
-        result = ApplyMica(hwnd, MicaType.MICA_ALT)
+        result = EnableMica(hwnd, BackdropType.MICA_ALT)
 
         if result == 0:
             self.status_label.setText("✓ Mica Alt effect applied successfully")
@@ -140,7 +140,7 @@ class SimpleWindow(QMainWindow):
             return
 
         hwnd = int(self.winId())
-        result = ApplyMica(hwnd, MicaType.AUTO)
+        result = EnableMica(hwnd, BackdropType.AUTO)
 
         if result == 0:
             self.status_label.setText("✓ Auto effect applied successfully")

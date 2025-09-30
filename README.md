@@ -13,7 +13,7 @@ pip install winmica
 ```python
 from PyQt6.QtWidgets import QApplication, QMainWindow
 from PyQt6.QtCore import Qt
-from winmica import ApplyMica, MicaType, is_mica_supported
+from winmica import EnableMica, BackdropType, is_mica_supported
 import sys
 
 class MyWindow(QMainWindow):
@@ -24,7 +24,7 @@ class MyWindow(QMainWindow):
         self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground, True)
         if is_mica_supported():
             hwnd = int(self.winId())
-            ApplyMica(hwnd, MicaType.MICA)
+            EnableMica(hwnd, BackdropType.MICA)
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
@@ -35,14 +35,14 @@ if __name__ == "__main__":
 
 ## Features
 - Official Windows 11 Mica Effect
-- Simple API: `ApplyMica(hwnd, effect_type)`
+- Simple API: `EnableMica(hwnd, backdrop_type)`
 - Works with PyQt6 windows (may also work with PySide6 or Tkinter, but not tested)
 - Detects system theme (light/dark)
 
 ## Effect Types
-- `MicaType.MICA` – Standard Mica
-- `MicaType.MICA_ALT` – Alternative Mica
-- `MicaType.AUTO` – Auto (let Windows decide)
+- `BackdropType.MICA` – Standard Mica
+- `BackdropType.MICA_ALT` – Alternative Mica
+- `BackdropType.AUTO` – Auto (let Windows decide)
 
 ## Result:
 <img width="954" height="720" alt="mica" src="https://github.com/user-attachments/assets/81131740-1240-43d6-a006-6cf379cfa09c" />

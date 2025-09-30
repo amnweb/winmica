@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="winmica",
-    version="1.0.2",
+    version="1.0.3",
     author="AmN",
     description="Windows 11 Mica backdrop effects using official Windows API",
     long_description=long_description,

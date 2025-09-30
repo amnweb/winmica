@@ -3,11 +3,11 @@ import sys
 import winreg
 from enum import IntEnum
 
-__version__ = "1.0.2"
+__version__ = "1.0.3"
 
 
-class MicaType(IntEnum):
-    """Mica backdrop types based on official Windows API"""
+class BackdropType(IntEnum):
+    """Supported Mica backdrop options based on the official Windows API."""
 
     AUTO = 0  # DWMSBT_AUTO - Let DWM decide
     MICA = 2  # DWMSBT_MAINWINDOW - Standard Mica
@@ -35,8 +35,8 @@ def get_windows_build() -> int:
         return 0
 
 
-def ApplyMica(HWND: int, mica_type: MicaType = MicaType.MICA) -> int:
-    """Apply Mica backdrop effect using official Windows API."""
+def EnableMica(HWND: int, backdrop: BackdropType = BackdropType.MICA) -> int:
+    """Enable the Mica backdrop effect using the official Windows API."""
     if HWND == 0:
         raise ValueError("The parameter HWND cannot be zero")
     try:
@@ -79,11 +79,11 @@ def ApplyMica(HWND: int, mica_type: MicaType = MicaType.MICA) -> int:
             result = DwmSetWindowAttribute(
                 HWND,
                 DWMWA_SYSTEMBACKDROP_TYPE,
-                ctypes.byref(ctypes.c_int(mica_type.value)),
+                ctypes.byref(ctypes.c_int(backdrop.value)),
                 ctypes.sizeof(ctypes.c_int),
             )
         else:
-            if mica_type == MicaType.MICA_ALT:
+            if backdrop == BackdropType.MICA_ALT:
                 result = DwmSetWindowAttribute(
                     HWND,
                     DWMWA_MICA_EFFECT_ALT,
